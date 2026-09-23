@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#120806">
+  <meta name="description" content="BRASA · Asador — Carta a la brasa con pedidos por WhatsApp. Plantilla web de ZENITH Studio.">
+  <title>BRASA 🔥 Asador — Carta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#top">BRO<b>SA</b></a>
+      <nav class="nav-desktop" id="nav-desktop">
+        <a href="#cortes">La carta</a>
+        <a href="#promo">Eventos</a>
+        <a href="#info">Dónde estamos</a>
+      </nav>
+      <a class="btn-fire" href="https://wa.me/34600000000?text=%C2%A1Hola%20Brasa!%20Quiero%20reservar%20mesa" target="_blank" rel="noopener">Reservar</a>
+      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="embers" id="embers" aria-hidden="true"></div>
+    <div class="container">
+      <span class="hero-kicker">🔥 Carbón de encina · Desde 2018</span>
+      <h1>AQUÍ TODO<br><span class="stroke">PASA POR</span><br>LA BRASA</h1>
+      <p>Carnes maduradas en casa, verdura de huerto vecino y fuego lento que no tiene prisa. Toca cualquier plato para conocer su historia… y pídelo por WhatsApp.</p>
+      <div class="hero-actions">
+        <a class="btn-fire" href="#para-empezar">Ver la carta</a>
+        <a class="btn-ghost" href="https://wa.me/34600000000?text=%C2%A1Hola%20Brasa!%20Quiero%20reservar%20mesa" target="_blank" rel="noopener">Reservar mesa</a>
+      </div>
+      <div class="hero-badges">
+        <div><b>45 días</b><span>de maduración propia</span></div>
+        <div><b>100%</b><span>carbón de encina</span></div>
+        <div><b>Km 0</b><span>verdura y panadería</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorías sticky -->
+  <nav class="cat-bar" aria-label="Categorías de la carta">
+    <div class="container"><div class="cat-scroll" id="cat-scroll"></div></div>
+  </nav>
+
+  <!-- Carta (renderizada desde js/menu-data.js) -->
+  <main id="menu"></main>
+
+  <!-- Promo -->
+  <section class="promo" id="promo">
+    <div class="container">
+      <div>
+        <h3>Parrillada XXL para grupos</h3>
+        <p>Mínimo 6 personas: selección de cortes, guarniciones y barra libre de brasas durante 2 h.</p>
+      </div>
+      <a class="btn-dark" href="https://wa.me/34600000000?text=%C2%A1Hola%20Brasa!%20Quiero%20organizar%20una%20parrillada%20para%20grupo" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Info -->
+  <section class="info" id="info">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Horario brasas</h3>
+          <ul>
+            <li><em>Mi – Vie</em><b>13:00–16:00 · 20:00–23:30</b></li>
+            <li><em>Sáb – Dom</em><b>13:00–00:00</b></li>
+            <li><em>Lunes</em><b>Día de limpieza del asador</b></li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>El local</h3>
+          <p>Carretera del Humo 7<br>Polígono La Encina<br>28007 Madrid</p>
+          <p style="margin-top:.7rem"><a class="btn-ghost" href="https://maps.google.com/?q=madrid" target="_blank" rel="noopener" style="display:inline-block">🗺️ Cómo llegar</a></p>
+        </div>
+        <div class="info-card">
+          <h3>Reservas</h3>
+          <p>Escríbenos por WhatsApp con día, hora y nº de comensales. Respondemos en menos de 15 min en horario de cocina.</p>
+          <p style="margin-top:.7rem"><a class="btn-ghost" href="tel:+34600000000" style="display:inline-block">📞 600 00 00 00</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>BRASA 🔥 — Plantilla creada por <a href="https://zenithdevopt.netlify.app/" target="_blank" rel="noopener">ZENITH Studio</a></p>
+    </div>
+  </footer>
+
+  <!-- FAB reserva -->
+  <a class="fab" href="https://wa.me/34600000000?text=%C2%A1Hola%20Brasa!%20Quiero%20reservar%20mesa" target="_blank" rel="noopener">💬 Reservar</a>
+
+  <!-- Modal detalle plato -->
+  <div class="modal-bg" id="modal-bg"><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>
+
+  <script src="js/menu-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#faf6ef">
+  <meta name="description" content="MAREMMA · Trattoria — Carta editorial de cocina toscana. Plantilla web de ZENITH Studio.">
+  <title>MAREMMA · Trattoria — La carta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#top">Maremma<i>.</i></a>
+      <nav class="nav-desktop" id="nav-desktop">
+        <a href="#antipasti">La carta</a>
+        <a href="#storia">La historia</a>
+        <a href="#visita">Visítanos</a>
+      </nav>
+      <a class="btn-solid" href="#visita">Reservar</a>
+      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Hero editorial -->
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <p class="hero-kicker">Trattoria toscana · Desde 1962</p>
+        <h1>Cocina de fuego lento y <em>mesa larga</em></h1>
+        <p>Tres generaciones amasando pici, seleccionando Sangiovese y creyendo que la mejor receta es la que no cambia. Todo lo que ves escrito abajo se cocina esta misma mañana.</p>
+        <div class="hero-actions">
+          <a class="btn-solid" href="#antipasti">Leer la carta</a>
+          <a class="link-arrow" href="#storia">Nuestra historia →</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg class="plate" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="150" cy="150" r="140" fill="#f1e9dc"/>
+          <circle cx="150" cy="150" r="118" fill="#fffdf8" stroke="#e3dacb"/>
+          <g stroke="#274235" stroke-width="1.6" fill="none" opacity="0.85">
+            <path d="M92 150 q20 -34 40 0 t40 0 t28 -8"/>
+            <path d="M96 162 q20 -30 40 0 t40 0 t24 -6"/>
+            <path d="M100 174 q18 -26 36 0 t36 0 t20 -5"/>
+          </g>
+          <circle cx="118" cy="128" r="9" fill="#c96f4a"/>
+          <circle cx="182" cy="120" r="7" fill="#c96f4a" opacity="0.8"/>
+          <g fill="#274235">
+            <ellipse cx="150" cy="106" rx="10" ry="4" transform="rotate(-24 150 106)"/>
+            <ellipse cx="160" cy="112" rx="10" ry="4" transform="rotate(18 160 112)"/>
+          </g>
+          <text x="150" y="216" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#7d8a7f" letter-spacing="4">MAREMMA</text>
+        </svg>
+        <div class="stamp">Pasta fatta<br>a mano<br>ogni giorno</div>
+      </div>
+    </div>
+    <div class="hero-scroll">scorri ↓ desliza</div>
+  </section>
+
+  <!-- Categorías sticky -->
+  <nav class="cat-bar" aria-label="Categorías de la carta">
+    <div class="container"><div class="cat-scroll" id="cat-scroll"></div></div>
+  </nav>
+
+  <!-- Carta (renderizada desde js/menu-data.js) -->
+  <main id="menu"></main>
+
+  <!-- Historia -->
+  <section class="story" id="storia">
+    <div class="container story-grid">
+      <div class="story-art" aria-hidden="true">
+        <svg viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="460" fill="#e8ddcb"/>
+          <rect x="24" y="24" width="352" height="412" fill="#f6efe2" stroke="#d8cbb4"/>
+          <g fill="#274235">
+            <path d="M60 380 q14 -60 34 -84 l10 6 q-22 30 -32 82 z"/>
+            <ellipse cx="86" cy="286" rx="26" ry="9" transform="rotate(-32 86 286)"/>
+            <ellipse cx="70" cy="300" rx="24" ry="8" transform="rotate(24 70 300)"/>
+          </g>
+          <g stroke="#c96f4a" stroke-width="3" fill="none">
+            <circle cx="255" cy="170" r="70"/>
+            <circle cx="255" cy="170" r="52"/>
+          </g>
+          <text x="255" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#22332a">M</text>
+          <text x="200" y="330" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#7d8a7f">“mangiare bene,</text>
+          <text x="200" y="358" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#7d8a7f">vivere meglio”</text>
+        </svg>
+      </div>
+      <div>
+        <p class="hero-kicker">La storia</p>
+        <h2>De una trattoria de pueblo a tu mesa</h2>
+        <p>Nonna Elena abrió en 1962 con seis mesas, un horno de leña y la certeza de que la Maremma entera cabía en un plato de pici. Su hijo Giulio introdujo el vino de la colina de al lado; nosotras, sus nietas, solo hemos aprendido a no estropearlo.</p>
+        <p>Hoy seguimos amasando cada mañana, comprando el pescado en el puerto de Talamone y negándonos a escribir “menú del día”. Aquí hay una carta, y cambia cuando cambian las estaciones.</p>
+        <p class="sig">— Famiglia Bianchi</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info -->
+  <section class="info" id="visita">
+    <div class="container">
+      <span class="kicker">Visítanos</span>
+      <h2>Te esperamos con la mesa puesta</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Orario · Horario</h3>
+          <ul>
+            <li><em>Pranzo</em><b>13:00 – 15:30</b></li>
+            <li><em>Cena</em><b>20:00 – 23:00</b></li>
+            <li><em>Domingos</em><b>Solo comida</b></li>
+            <li><em>Lunes</em><b>Riposo · Cerrado</b></li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Indirizzo · Dirección</h3>
+          <p>Via della Brada 14<br>58053 Monte Argentario, GR<br>Italia</p>
+          <a class="btn-solid" href="https://maps.google.com/?q=monte+argentario" target="_blank" rel="noopener">🧭 Cómo llegar</a>
+        </div>
+        <div class="info-card">
+          <h3>Prenota · Reservas</h3>
+          <p>+39 0564 000 000<br>ciao@maremma.example</p>
+          <p style="margin-top:.6rem">Grupos y cenas de familia: avísanos con dos días y preparamos la mesa larga.</p>
+          <a class="btn-solid" href="tel:+390564000000">📞 Llamar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>MAREMMA · Trattoria — Plantilla creada por <a href="https://zenithdevopt.netlify.app/" target="_blank" rel="noopener">ZENITH Studio</a></p>
+    </div>
+  </footer>
+
+  <!-- Popover postal -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="card-pop" id="card-pop" role="dialog" aria-modal="true" aria-label="Detalle del plato"></aside>
+
+  <script src="js/menu-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

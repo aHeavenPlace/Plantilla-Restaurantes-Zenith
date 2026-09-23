@@ -1,0 +1,37 @@
+// ZEST! · Juice Bar — datos de la carta (edítalos aquí)
+window.MENU_DATA = {
+  currency: "€",
+  whatsapp: "34600000000", // número para pedidos
+  categories: [
+    { id: "smoothies", label: "Smoothies", note: "Fruta recién batida. Sin azúcares añadidos, nunca." },
+    { id: "bowls", label: "Bowls", note: "Base cremosa + toppings que crujen." },
+    { id: "juices", label: "Cold press", note: "Prensado en frío el mismo día. Caducidad: hoy." },
+    { id: "toast", label: "Toast & snacks", note: "Para mojar y no irse con hambre." },
+    { id: "cafe", label: "Café & té", note: "Grano de tueste local, leches vegetales gratis." }
+  ],
+  dishes: [
+    { cat: "smoothies", icon: "🥭", name: "Mango Sunrise", price: 6.5, kcal: "210 kcal", desc: "Mango, plátano, naranja y cúrcuma fresca.", long: "Mango de temporada, medio plátano congelado, zumo de naranja exprimido y un dedo de cúrcuma fresca. Dulzor natural, cero azúcar.", isNew: true },
+    { cat: "smoothies", icon: "🍓", name: "Berry Boom", price: 7.0, kcal: "190 kcal", desc: "Frutos rojos, banana y yogur griego.", long: "Frambuesa, arándano y fresa batidos con banana y yogur griego proteico. Antioxidantes a borbotones." },
+    { cat: "smoothies", icon: "🥑", name: "Green Machine", price: 7.0, kcal: "230 kcal", desc: "Aguacate, espinaca, piña y leche de coco.", long: "El verde que sí sabe bien: aguacate entero, puñado de espinaca baby, piña tropical y leche de coco fría." },
+    { cat: "smoothies", icon: "🍫", name: "Choco Peanut", price: 7.5, kcal: "310 kcal", desc: "Cacao puro, mantequilla de cacahuete y dátil.", long: "Postre disfrazado de desayuno: cacao 100%, crema de cacahuete tostada y dos dátiles medjool. Proteína extra si añades avena." },
+
+    { cat: "bowls", icon: "🏝️", name: "Açaí Tropical", price: 9.5, kcal: "380 kcal", desc: "Açaí brasileño, granola horneada, plátano y coco.", long: "Base densa de açaí batida con plátano, coronada con granola horneada en casa, rodajas de plátano, coco rallado y miel de caña.", isNew: true },
+    { cat: "bowls", icon: "🥣", name: "Matcha Yogurt Bowl", price: 9.0, kcal: "340 kcal", desc: "Yogur de matcha, arándanos, semillas de chía.", long: "Yogur natural montado con matcha ceremonial de Uji, chía, arándanos frescos y lamas de almendra." },
+    { cat: "bowls", icon: "🍌", name: "PB Power Bowl", price: 9.5, kcal: "430 kcal", desc: "Porridge overnight, cacahuete, banana y chips de coco.", long: "Avena reposada toda la noche con leche de almendra, remolino de mantequilla de cacahuete, banana en rodajas y chips de coco tostado. Energía hasta la cena." },
+
+    { cat: "juices", icon: "🍊", name: "Sunrise OJ", price: 5.5, kcal: "160 kcal", desc: "Naranja y zanahoria prensadas en frío.", long: "Naranjas de Valencia y zanahoria lavada, prensadas juntas en frío. Sin conservantes, sin agua, sin nada más." },
+    { cat: "juices", icon: "🥬", name: "Detox Verde", price: 6.0, kcal: "120 kcal", desc: "Apio, pepino, manzana verde, jengibre y limón.", long: "El clásico verde honesto: apio y pepino como base, manzana granny para el punto dulce, jengibre vivo y limón." },
+    { cat: "juices", icon: "🫜", name: "Beet Boost", price: 6.0, kcal: "140 kcal", desc: "Remolacha, manzana, zanahoria y perejil.", long: "Remolacha asada antes de prensar para quitar tierra y sacar caramelo. Hierro, nitratos y color de atardecer." },
+    { cat: "juices", icon: "🍉", name: "Sandia Cooler", price: 5.5, kcal: "110 kcal", desc: "Sandía, hierbabuena y lima. Verano embotellado.", long: "Solo sandía madura prensada con hielo, hojas de hierbabuena machacadas y un giro de lima." },
+
+    { cat: "toast", icon: "🥑", name: "Avocado Toast Zest", price: 8.5, kcal: "320 kcal", desc: "Pan masa madre, aguacate, huevo poché y dukkah.", long: "Rebanada gruesa de masa madre tostada, aguacate en láminas gruesas, huevo poché de corral, dukkah egipcio y escamas de sal." },
+    { cat: "toast", icon: "🧀", name: "Grilled Cheese & Tomato", price: 7.5, kcal: "410 kcal", desc: "Tres quesos fundidos y sopa de tomate para mojar.", long: "Sándwich de brioche con cheddar curado, gruyère y parmesano, plancha hasta dorar, con sopa de tomate asado en vaso." },
+    { cat: "toast", icon: "🍯", name: "Ricotta & Honey Toast", price: 7.0, kcal: "290 kcal", desc: "Ricotta batida, miel de romero, higos y nueces.", long: "Dulce-salado: ricotta aireada con miel, higos de temporada, nueces caramelizadas y pimienta negra." },
+    { cat: "toast", icon: "🥞", name: "Protein Pancakes", price: 9.0, kcal: "450 kcal", desc: "Tortitas de avena y plátano, sirope de arce real.", long: "Torre de tortitas hechas solo con avena, plátano y clara de huevo. Mantequilla de maní y sirope de arce grado A." },
+
+    { cat: "cafe", icon: "☕", name: "Flat White Zest", price: 3.2, kcal: "", desc: "Doble ristretto y microespuma de seda.", long: "Blend propio de tueste medio: doble ristretto con leche texturizada al milímetro. Con leche de vaca o vegetal al mismo precio." },
+    { cat: "cafe", icon: "🧋", name: "I Matcha Latte", price: 4.5, kcal: "", desc: "Matcha ceremonial sobre hielo y leche de avena.", long: "Matcha de primer brote batido con chasen, servido sobre una montaña de hielo con leche de avena barista." },
+    { cat: "cafe", icon: "🍵", name: "Chai especiado casero", price: 4.0, kcal: "", desc: "Té negro hervido con especias enteras y espuma.", long: "Té Assam hervido despacio con canela, cardamomo, clavo y jengibre fresco; leche vaporizada y espuma especiada." },
+    { cat: "cafe", icon: "🥤", name: "Cold Brew 18h", price: 3.8, kcal: "", desc: "Extracción en frío durante 18 horas. Suave y chocolateado.", long: "Café molido grueso en maceración fría 18 horas, filtrado dos veces. Bajo en acidez, alto en cafeína." }
+  ]
+};
