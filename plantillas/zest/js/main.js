@@ -1,6 +1,27 @@
 // ZEST! · Juice Bar — lógica de la plantilla (menú + pedido con contador)
 (() => {
   const DATA = window.MENU_DATA;
+
+  /* ---------- Fotos de platos (Unsplash) con fallback elegante ---------- */
+  const MAP = window.PHOTO_MAP || {};
+  const FALLBACK = window.PHOTO_FALLBACK || (() => "linear-gradient(135deg,#2a2a2a,#1a1a1a)");
+  function photo(name, icon) {
+    const url = MAP[name];
+    if (!url) return `<span class="dish-photo ph-broken" style="background:${FALLBACK(name)}">${icon}</span>`;
+    return `<img class="dish-photo" src="${url}" data-name="${name}" data-icon="${icon}" alt="${name}" loading="lazy" decoding="async">`;
+  }
+  // Si una foto no carga (ID roto o sin conexión), se sustituye por el degradado de la plantilla.
+  document.addEventListener("error", (e) => {
+    const el = e.target;
+    if (el.tagName === "IMG" && /^(dish-photo|drawer-photo|pop-photo)$/.test(el.className)) {
+      const wrap = document.createElement("span");
+      wrap.className = el.className + " ph-broken";
+      wrap.style.background = window.PHOTO_FALLBACK ? PHOTO_FALLBACK(el.dataset.name || "") : "#222";
+      wrap.textContent = el.dataset.icon || "";
+      el.replaceWith(wrap);
+    }
+  }, true);
+
   const money = (n) => n.toFixed(2).replace(".", ",") + " " + DATA.currency;
   const waLink = (msg) => `https://wa.me/${DATA.whatsapp}?text=${encodeURIComponent(msg)}`;
 
@@ -33,7 +54,7 @@
             <article class="dish" data-key="${cat.id}-${idx}" tabindex="0" aria-label="${d.name}, ${money(d.price)}">
               ${d.isNew ? '<span class="badge-new">Nuevo</span>' : ""}
               ${d.kcal ? `<span class="kcal">${d.kcal}</span>` : ""}
-              <div class="dish-icon">${d.icon}</div>
+              <div class="dish-icon">${photo(d.name, d.icon)}</div>
               <h3 class="dish-name">${d.name}</h3>
               <p class="dish-desc">${d.desc}</p>
               <div class="dish-foot">

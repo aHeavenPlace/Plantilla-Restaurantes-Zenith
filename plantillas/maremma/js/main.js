@@ -1,6 +1,32 @@
 // MAREMMA · Trattoria — lógica de la plantilla
 (() => {
   const DATA = window.MENU_DATA;
+
+  /* ---------- Fotos de platos (Unsplash) con fallback elegante ---------- */
+  const MAP = window.PHOTO_MAP || {};
+  const FALLBACK = window.PHOTO_FALLBACK || (() => "linear-gradient(135deg,#2a2a2a,#1a1a1a)");
+  function photo(name, icon) {
+    const url = MAP[name];
+    if (!url) return `<span class="dish-photo ph-broken" style="background:${FALLBACK(name)}">${icon}</span>`;
+    return `<img class="dish-photo" src="${url}" data-name="${name}" data-icon="${icon}" alt="${name}" loading="lazy" decoding="async">`;
+  }
+  function photoBig(name, icon) {
+    const url = MAP[name];
+    if (!url) return `<span class="pop-photo ph-broken" style="background:${FALLBACK(name)}">${icon}</span>`;
+    return `<img class="pop-photo" src="${url}" data-name="${name}" data-icon="${icon}" alt="${name}" loading="lazy">`;
+  }
+  // Si una foto no carga (ID roto o sin conexión), se sustituye por el degradado de la plantilla.
+  document.addEventListener("error", (e) => {
+    const el = e.target;
+    if (el.tagName === "IMG" && /^(dish-photo|drawer-photo|pop-photo)$/.test(el.className)) {
+      const wrap = document.createElement("span");
+      wrap.className = el.className + " ph-broken";
+      wrap.style.background = window.PHOTO_FALLBACK ? PHOTO_FALLBACK(el.dataset.name || "") : "#222";
+      wrap.textContent = el.dataset.icon || "";
+      el.replaceWith(wrap);
+    }
+  }, true);
+
   const money = (n) => n.toFixed(2).replace(".", ",") + " " + DATA.currency;
 
   /* ---------- Render carta estilo menú impreso ---------- */
@@ -29,7 +55,7 @@
           ${dishes.map((d, idx) => `
             <article class="dish" data-cat="${cat.id}" data-idx="${idx}" tabindex="0" role="button" aria-label="Ver detalle de ${d.name}">
               <div class="dish-top">
-                <h3 class="dish-name">${d.icon} ${d.name}</h3>
+                <span class="dish-thumb">${photo(d.name, d.icon)}</span><h3 class="dish-name">${d.name}</h3>
                 <span class="dish-dots"></span>
                 <span class="dish-price">${money(d.price)}</span>
               </div>
@@ -51,7 +77,7 @@
     if (!dish) return;
     lastFocus = document.activeElement;
     pop.innerHTML = `
-      <div class="art">${dish.icon}</div>
+      <div class="art">${photoBig(dish.name, dish.icon)}</div>
       <h3>${dish.name}</h3>
       <p class="latina">${dish.it}</p>
       <p class="price">${money(dish.price)}</p>

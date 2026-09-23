@@ -190,3 +190,17 @@ footer .kanji { color: var(--gold); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ---------- Fotos de platos (Unsplash) ---------- */
+.dish-photo { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.dish-art { overflow: hidden; padding: 0; }
+.ph-broken { display: grid; place-items: center; font-size: 1.5rem; }
+.drawer-art { overflow: hidden; }
+.drawer-photo { width: min(260px, 70vw); aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; margin: 0 auto 0.8rem; display: block; border: 1px solid var(--line); }
+
+.hero { position: relative; }
+.hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.16; filter: saturate(0.8); pointer-events: none; }
+.hero .container { position: relative; z-index: 1; }
+
+.dish-art .ph-broken { border-radius: 50%; }
+.drawer-photo.ph-broken { font-size: 3rem; }
