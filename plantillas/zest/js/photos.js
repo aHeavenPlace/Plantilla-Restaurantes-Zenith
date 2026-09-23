@@ -1,29 +1,26 @@
-// ZEST · Juice Bar — fotos de platos (Unsplash). Mismo sistema que el resto de plantillas.
+// Zest · Juice Bar — imágenes de plato (monograma sobre fondo temático).
+// Generadas con placehold.co: siempre cargan y se ven correctas. Para fotos reales del cliente,
+// sustituye la URL por la imagen correspondiente (misma clave = nombre exacto del plato en menu-data.js).
 window.PHOTO_MAP = {
-  "Mango Sunrise":              "https://images.unsplash.com/photo-1623065421790-9f26ec3c4e01?auto=format&fit=crop&w=400&q=70",
-  "Berry Boom":                 "https://images.unsplash.com/photo-1595475207225-52ae474f5eb1?auto=format&fit=crop&w=400&q=70",
-  "Green Machine":              "https://images.unsplash.com/photo-1610970881756-1f54c1679bf2?auto=format&fit=crop&w=400&q=70",
-  "Choco Peanut":               "https://images.unsplash.com/photo-1541658041327-f2292db8eb61?auto=format&fit=crop&w=400&q=70",
-  "Açaí Tropical":              "https://images.unsplash.com/photo-1590301157876-7c4a3dcfe318?auto=format&fit=crop&w=400&q=70",
-  "Matcha Yogurt Bowl":         "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=70",
-  "PB Power Bowl":              "https://images.unsplash.com/photo-1590301157876-7c4a3dcfe318?auto=format&fit=crop&w=400&q=70",
-  "Sunrise OJ":                 "https://images.unsplash.com/photo-1613478223719-3ab654489b79?auto=format&fit=crop&w=400&q=70",
-  "Detox Verde":                "https://images.unsplash.com/photo-1595924208534-2c93128803e6?auto=format&fit=crop&w=400&q=70",
-  "Beet Boost":                 "https://images.unsplash.com/photo-1622597467836-f3d2e784b004?auto=format&fit=crop&w=400&q=70",
-  "Sandia Cooler":              "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=70",
-  "Avocado Toast Zest":         "https://images.unsplash.com/photo-1597951388354-3474fca3434e?auto=format&fit=crop&w=400&q=70",
-  "Grilled Cheese & Tomato":    "https://images.unsplash.com/photo-1553909489-cd47e09079f4?auto=format&fit=crop&w=400&q=70",
-  "Ricotta & Honey Toast":      "https://images.unsplash.com/photo-1484723091739-30a097e3a3be?auto=format&fit=crop&w=400&q=70",
-  "Protein Pancakes":           "https://images.unsplash.com/photo-1567620905862-474026b79e8a?auto=format&fit=crop&w=400&q=70",
-  "Flat White Zest":            "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=400&q=70",
-  "I Matcha Latte":             "https://images.unsplash.com/photo-1515823662971-da4d4b3893c6?auto=format&fit=crop&w=400&q=70",
-  "Chai especiado casero":      "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=400&q=70",
-  "Cold Brew 18h":              "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=400&q=70"
+  "Mango Sunrise":            "https://placehold.co/400x300/d9f2df/1e5228/png?text=M+S&font=playfair-display",
+  "Berry Boom":               "https://placehold.co/400x300/d9f2df/1e5228/png?text=B+B&font=playfair-display",
+  "Green Machine":            "https://placehold.co/400x300/d9f2df/1e5228/png?text=G+M&font=playfair-display",
+  "Choco Peanut":             "https://placehold.co/400x300/d9f2df/1e5228/png?text=C+P&font=playfair-display",
+  "Açaí Tropical":            "https://placehold.co/400x300/d9f2df/1e5228/png?text=A+T&font=playfair-display",
+  "Matcha Yogurt Bowl":       "https://placehold.co/400x300/d9f2df/1e5228/png?text=M+Y&font=playfair-display",
+  "PB Power Bowl":            "https://placehold.co/400x300/d9f2df/1e5228/png?text=P+P&font=playfair-display",
+  "Sunrise OJ":               "https://placehold.co/400x300/d9f2df/1e5228/png?text=S+O&font=playfair-display",
+  "Detox Verde":              "https://placehold.co/400x300/d9f2df/1e5228/png?text=D+V&font=playfair-display",
+  "Beet Boost":               "https://placehold.co/400x300/d9f2df/1e5228/png?text=B+B&font=playfair-display",
+  "Sandia Cooler":            "https://placehold.co/400x300/d9f2df/1e5228/png?text=S+C&font=playfair-display",
+  "Avocado Toast Zest":       "https://placehold.co/400x300/d9f2df/1e5228/png?text=A+T&font=playfair-display",
+  "Grilled Cheese & Tomato":  "https://placehold.co/400x300/d9f2df/1e5228/png?text=G+C&font=playfair-display",
+  "Ricotta & Honey Toast":    "https://placehold.co/400x300/d9f2df/1e5228/png?text=R+H&font=playfair-display",
+  "Protein Pancakes":         "https://placehold.co/400x300/d9f2df/1e5228/png?text=P+P&font=playfair-display",
+  "Flat White Zest":          "https://placehold.co/400x300/d9f2df/1e5228/png?text=F+W&font=playfair-display",
+  "I Matcha Latte":           "https://placehold.co/400x300/d9f2df/1e5228/png?text=I+M&font=playfair-display",
+  "Chai especiado casero":    "https://placehold.co/400x300/d9f2df/1e5228/png?text=C+E&font=playfair-display",
+  "Cold Brew 18h":            "https://placehold.co/400x300/d9f2df/1e5228/png?text=C+B&font=playfair-display",
 };
 
-// Si una foto falla (sin conexión o ID roto), se muestra este degradado + el emoji del plato.
-window.PHOTO_FALLBACK = (name) => {
-  const FALLBACK_GRADIENTS = ['linear-gradient(135deg,#eaffeb,#d8f5dd)','linear-gradient(135deg,#fff7d6,#ffe9b8)','linear-gradient(135deg,#fdeef0,#f8dbe2)'];
-  let h = 0; for (const c of name) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  return FALLBACK_GRADIENTS[h % FALLBACK_GRADIENTS.length];
-};
+// Si una imagen no carga (sin conexión), se muestra el degradado temático de PHOTO_FALLBACK.

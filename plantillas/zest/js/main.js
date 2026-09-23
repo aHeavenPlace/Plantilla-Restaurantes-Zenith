@@ -2,27 +2,27 @@
 (() => {
   const DATA = window.MENU_DATA;
 
-  /* ---------- Fotos de platos (Unsplash) con fallback elegante ---------- */
+  /* ---------- Imágenes de plato con fallback degradado ---------- */
   const MAP = window.PHOTO_MAP || {};
   const FALLBACK = window.PHOTO_FALLBACK || (() => "linear-gradient(135deg,#2a2a2a,#1a1a1a)");
-  function photo(name, icon) {
+  function photo(name) {
     const url = MAP[name];
-    if (!url) return `<span class="dish-photo ph-broken" style="background:${FALLBACK(name)}">${icon}</span>`;
-    return `<img class="dish-photo" src="${url}" data-name="${name}" data-icon="${icon}" alt="${name}" loading="lazy" decoding="async">`;
+    if (!url) return `<span class="dish-photo ph-broken" style="background:${FALLBACK(name)}"></span>`;
+    return `<img class="dish-photo" src="${url}" data-name="${name}" alt="${name}" loading="lazy" decoding="async">`;
   }
-  // Si una foto no carga (ID roto o sin conexión), se sustituye por el degradado de la plantilla.
+  // Si una imagen no carga (sin conexión), se sustituye por el degradado temático.
   document.addEventListener("error", (e) => {
     const el = e.target;
     if (el.tagName === "IMG" && /^(dish-photo|drawer-photo|pop-photo)$/.test(el.className)) {
       const wrap = document.createElement("span");
       wrap.className = el.className + " ph-broken";
       wrap.style.background = window.PHOTO_FALLBACK ? PHOTO_FALLBACK(el.dataset.name || "") : "#222";
-      wrap.textContent = el.dataset.icon || "";
       el.replaceWith(wrap);
     }
   }, true);
 
   const money = (n) => n.toFixed(2).replace(".", ",") + " " + DATA.currency;
+  const shortName = (n) => n.replace(/\(.*?\)/g, "").trim().split(/\s+/).slice(0, 2).join(" ");
   const waLink = (msg) => `https://wa.me/${DATA.whatsapp}?text=${encodeURIComponent(msg)}`;
 
   /* Carrito: { key: "cat-idx" -> qty } */
@@ -54,7 +54,7 @@
             <article class="dish" data-key="${cat.id}-${idx}" tabindex="0" aria-label="${d.name}, ${money(d.price)}">
               ${d.isNew ? '<span class="badge-new">Nuevo</span>' : ""}
               ${d.kcal ? `<span class="kcal">${d.kcal}</span>` : ""}
-              <div class="dish-icon">${photo(d.name, d.icon)}</div>
+              <div class="dish-icon">${photo(d.name)}</div>
               <h3 class="dish-name">${d.name}</h3>
               <p class="dish-desc">${d.desc}</p>
               <div class="dish-foot">
@@ -86,7 +86,7 @@
     document.querySelectorAll(".add-btn").forEach((b) => {
       const q = order[b.dataset.add] || 0;
       b.classList.toggle("added", q > 0);
-      b.textContent = q > 0 ? "✓" : "+";
+      b.textContent = q > 0 ? "" : "+";
     });
   }
 
@@ -118,7 +118,7 @@
     mode = "detail";
     sheet.innerHTML = `
       <div class="sheet-handle"></div>
-      <div style="text-align:center;font-size:3rem">${d.icon}</div>
+      <div class="sheet-photo">${photo(d.name)}</div>
       <h3 style="text-align:center">${d.name}</h3>
       <p style="text-align:center;color:var(--muted);margin-bottom:.4rem">${d.long}</p>
       <p style="text-align:center;font-weight:800;font-size:1.3rem;margin-bottom:1.2rem">${money(d.price)} ${d.kcal ? '· <small style="color:var(--muted);font-size:.75rem">' + d.kcal + "</small>" : ""}</p>
@@ -145,20 +145,20 @@
     const keys = Object.keys(order).filter((k) => order[k] > 0);
     sheet.innerHTML = `
       <div class="sheet-handle"></div>
-      <h3>Tu pedido 🧃</h3>
+      <h3>Tu pedido</h3>
       ${keys.length === 0
         ? '<p class="order-empty">Aún no has añadido nada.<br>Toca el “+” de cualquier tarjeta.</p><button class="sheet-close" id="sheet-close">Cerrar</button>'
         : keys.map((k) => {
             const d = dishOf(k);
             return `<div class="order-line">
-              <span class="oi">${d.icon}</span>
+              <span class="oi">${shortName(d.name)}</span>
               <span class="on">${d.name}<br><span class="op">${money(d.price)} c/u</span></span>
               <span class="qty"><button data-dec="${k}">−</button><b>${order[k]}</b><button data-inc="${k}">+</button></span>
             </div>`;
           }).join("") +
           `<div class="order-total"><span>Total</span><span>${money(totalPrice())}</span></div>
            <div class="sheet-actions">
-             <a class="wa-btn" target="_blank" rel="noopener" href="${waLink(orderMessage())}">Enviar pedido por WhatsApp 💬</a>
+             <a class="wa-btn" target="_blank" rel="noopener" href="${waLink(orderMessage())}">Enviar pedido por WhatsApp</a>
              <button class="sheet-close" id="sheet-close">Seguir mirando</button>
            </div>`}`;
     sheet.querySelector("#sheet-close").addEventListener("click", closeSheet);

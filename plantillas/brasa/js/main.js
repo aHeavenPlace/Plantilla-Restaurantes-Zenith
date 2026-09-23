@@ -2,27 +2,26 @@
 (() => {
   const DATA = window.MENU_DATA;
 
-  /* ---------- Fotos de platos (Unsplash) con fallback elegante ---------- */
+  /* ---------- Imágenes de plato con fallback degradado ---------- */
   const MAP = window.PHOTO_MAP || {};
   const FALLBACK = window.PHOTO_FALLBACK || (() => "linear-gradient(135deg,#2a2a2a,#1a1a1a)");
-  function photo(name, icon) {
+  function photo(name) {
     const url = MAP[name];
-    if (!url) return `<span class="dish-photo ph-broken" style="background:${FALLBACK(name)}">${icon}</span>`;
-    return `<img class="dish-photo" src="${url}" data-name="${name}" data-icon="${icon}" alt="${name}" loading="lazy" decoding="async">`;
+    if (!url) return `<span class="dish-photo ph-broken" style="background:${FALLBACK(name)}"></span>`;
+    return `<img class="dish-photo" src="${url}" data-name="${name}" alt="${name}" loading="lazy" decoding="async">`;
   }
-  function photoBig(name, icon) {
+  function photoBig(name) {
     const url = MAP[name];
-    if (!url) return `<span class="drawer-photo ph-broken" style="background:${FALLBACK(name)}">${icon}</span>`;
-    return `<img class="drawer-photo" src="${url}" data-name="${name}" data-icon="${icon}" alt="${name}" loading="lazy">`;
+    if (!url) return `<span class="drawer-photo ph-broken" style="background:${FALLBACK(name)}"></span>`;
+    return `<img class="drawer-photo" src="${url}" data-name="${name}" alt="${name}" loading="lazy">`;
   }
-  // Si una foto no carga (ID roto o sin conexión), se sustituye por el degradado de la plantilla.
+  // Si una imagen no carga (sin conexión), se sustituye por el degradado temático.
   document.addEventListener("error", (e) => {
     const el = e.target;
     if (el.tagName === "IMG" && /^(dish-photo|drawer-photo|pop-photo)$/.test(el.className)) {
       const wrap = document.createElement("span");
       wrap.className = el.className + " ph-broken";
       wrap.style.background = window.PHOTO_FALLBACK ? PHOTO_FALLBACK(el.dataset.name || "") : "#222";
-      wrap.textContent = el.dataset.icon || "";
       el.replaceWith(wrap);
     }
   }, true);
@@ -55,13 +54,13 @@
         <div class="dish-list">
           ${dishes.map((d, idx) => `
             <article class="dish" data-cat="${cat.id}" data-idx="${idx}" tabindex="0" role="button" aria-label="Ver detalle de ${d.name}">
-              <div class="dish-banner">${photo(d.name, d.icon)}${d.weight ? `<span class="weight">${d.weight}</span>` : ""}</div>
+              <div class="dish-banner">${photo(d.name)}${d.weight ? `<span class="weight">${d.weight}</span>` : ""}</div>
               <div class="dish-body">
                 <div class="dish-top">
-                  <h3 class="dish-name">${d.name} ${d.recommended ? "⭐" : ""}</h3>
+                  <h3 class="dish-name">${d.name} ${d.recommended ? "" : ""}</h3>
                   <span class="dish-price">${money(d.price)}</span>
                 </div>
-                <p class="dish-desc">${d.desc} ${d.spicy ? '<span class="spicy">🌶️</span>' : ""}</p>
+                <p class="dish-desc">${d.desc} ${d.spicy ? '<span class="spicy"></span>' : ""}</p>
               </div>
             </article>`).join("")}
         </div>
@@ -79,12 +78,12 @@
     if (!dish) return;
     lastFocus = document.activeElement;
     modal.innerHTML = `
-      <div class="modal-art">${photoBig(dish.name, dish.icon)}</div>
+      <div class="modal-art">${photoBig(dish.name)}</div>
       <h3>${dish.name}</h3>
       <p class="modal-price">${money(dish.price)} ${dish.weight ? "· " + dish.weight : ""}</p>
       <p>${dish.long}</p>
       <div class="modal-actions">
-        <a class="btn-fire" target="_blank" rel="noopener" href="${waLink(`¡Hola Brasa! Quiero pedir/reservar: ${dish.name} (${money(dish.price)})`)}. Pedir por WhatsApp</a>
+        <a class="btn-fire" target="_blank" rel="noopener" href="${waLink(`¡Hola Brasa! Quiero pedir/reservar: ${dish.name} (${money(dish.price)})`)}">Pedir por WhatsApp</a>
         <button class="btn-ghost" id="modal-close">Volver a la carta</button>
       </div>`;
     modalBg.classList.add("open");
