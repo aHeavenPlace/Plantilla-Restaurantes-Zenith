@@ -26,7 +26,7 @@
     }
   }, true);
 
-  const money = (n) => n.toFixed(2).replace(".", ",") + " " + DATA.currency;
+  const money = (n) => "$" + Math.round(n).toLocaleString("es-CO") + " COP";
 
   /* ---------- Render carta estilo menú impreso ---------- */
   const menuRoot = document.getElementById("menu");
