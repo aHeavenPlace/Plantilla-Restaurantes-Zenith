@@ -1,26 +1,28 @@
-// Zest! · Juice Bar — imágenes de plato (fotos reales vía picsum.photos, seed estable por tipo de plato).
-// Verificadas: todas responden HTTP 200 con content-type image/jpeg. Para fotos propias del cliente,
-// sustituye la URL por la imagen correspondiente (misma clave = nombre exacto del plato en menu-data.js).
+// Zest! · Juice Bar — imágenes de plato.
+// Fuente: Bing Images thumbnails (tse.mm.bing.net) — foto REAL relevante a la búsqueda, recortada a
+// 600x450 y cacheada por CDN. Cada query fue verificada: HTTP 200, image/jpeg y coherente con el plato.
+const BING = (q) => `https://tse.mm.bing.net/th?q=${encodeURIComponent(q)}&w=600&h=450&c=7&rs=1&p=0`;
+
 window.PHOTO_MAP = {
-  "Mango Biche Sunrise"                   : "https://picsum.photos/seed/mango-smoothie/400/300",
-  "Gulupa Boom"                      : "https://picsum.photos/seed/berry-smoothie/400/300",
-  "Verde Bucaramanga"                   : "https://picsum.photos/seed/green-smoothie/400/300",
-  "Choco Peanut"                    : "https://picsum.photos/seed/chocolate-smoothie/400/300",
-  "Açaí Tropical"                   : "https://picsum.photos/seed/acai-bowl/400/300",
-  "Matcha Yogurt Bowl"              : "https://picsum.photos/seed/matcha-bowl/400/300",
-  "PB Power Bowl"                   : "https://picsum.photos/seed/peanut-butter-oats-bowl/400/300",
-  "Naranja & Zanahoria"                      : "https://picsum.photos/seed/orange-juice/400/300",
-  "Detox Verde"                     : "https://picsum.photos/seed/green-juice/400/300",
-  "Remolacha Boost"                      : "https://picsum.photos/seed/beet-juice/400/300",
-  "Patilla Cooler"                   : "https://picsum.photos/seed/watermelon-juice/400/300",
-  "Aguacate Toast Zest"              : "https://picsum.photos/seed/avocado-toast/400/300",
-  "Grilled Cheese & Tomato"         : "https://picsum.photos/seed/grilled-cheese-sandwich/400/300",
-  "Queso ricotta & Miel Toast"           : "https://picsum.photos/seed/ricotta-toast-honey/400/300",
-  "Protein Pancakes"                : "https://picsum.photos/seed/pancakes-stack/400/300",
-  "Flat White Zest"                 : "https://picsum.photos/seed/flat-white-coffee/400/300",
-  "I Matcha Latte"                  : "https://picsum.photos/seed/iced-matcha-latte/400/300",
-  "Chai especiado casero"           : "https://picsum.photos/seed/chai-latte/400/300",
-  "Cold Brew 18h"                   : "https://picsum.photos/seed/cold-brew-coffee/400/300",
+  "Mango Biche Sunrise"             : BING("mango smoothie glass tropical"),
+  "Gulupa Boom"                     : BING("berry smoothie purple glass"),
+  "Verde Bucaramanga"               : BING("green smoothie avocado glass"),
+  "Choco Peanut"                    : BING("chocolate peanut smoothie"),
+  "Açaí Tropical"                   : BING("acai bowl granola banana"),
+  "Matcha Yogurt Bowl"              : BING("matcha yogurt bowl blueberries"),
+  "PB Power Bowl"                   : BING("overnight oats peanut butter banana"),
+  "Naranja & Zanahoria"             : BING("orange carrot juice glass"),
+  "Detox Verde"                     : BING("green detox juice celery glass"),
+  "Remolacha Boost"                 : BING("beetroot juice glass red"),
+  "Patilla Cooler"                  : BING("watermelon juice mint glass"),
+  "Aguacate Toast Zest"             : BING("avocado toast poached egg"),
+  "Grilled Cheese & Tomato"         : BING("grilled cheese sandwich tomato soup"),
+  "Queso ricotta & Miel Toast"      : BING("ricotta toast honey figs"),
+  "Protein Pancakes"                : BING("pancake stack maple syrup banana"),
+  "Flat White Zest"                 : BING("flat white coffee cup"),
+  "I Matcha Latte"                  : BING("iced matcha latte glass"),
+  "Chai especiado casero"           : BING("chai latte spices cup"),
+  "Cold Brew 18h"                   : BING("cold brew coffee glass ice"),
 };
 
 // Degradado temático de respaldo si una imagen no carga (sin conexión).

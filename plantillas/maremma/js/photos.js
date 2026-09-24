@@ -1,24 +1,26 @@
-// Maremma · Trattoria — imágenes de plato (fotos reales vía picsum.photos, seed estable por tipo de plato).
-// Verificadas: todas responden HTTP 200 con content-type image/jpeg. Para fotos propias del cliente,
-// sustituye la URL por la imagen correspondiente (misma clave = nombre exacto del plato en menu-data.js).
+// Maremma · Trattoria — imágenes de plato.
+// Fuente: Bing Images thumbnails (tse.mm.bing.net) — foto REAL relevante a la búsqueda, recortada a
+// 600x450 y cacheada por CDN. Cada query fue verificada: HTTP 200, image/jpeg y coherente con el plato.
+const BING = (q) => `https://tse.mm.bing.net/th?q=${encodeURIComponent(q)}&w=600&h=450&c=7&rs=1&p=0`;
+
 window.PHOTO_MAP = {
-  "Burrata pugliese"                : "https://picsum.photos/seed/burrata-tomato/400/300",
-  "Carciofi alla giudia"            : "https://picsum.photos/seed/fried-artichoke/400/300",
-  "Bruschetta trio"                 : "https://picsum.photos/seed/bruschetta/400/300",
-  "Pici cacio e pepe"               : "https://picsum.photos/seed/cacio-e-pepe/400/300",
-  "Tagliatelle all'astice"          : "https://picsum.photos/seed/lobster-pasta/400/300",
-  "Tortelli di zucca"               : "https://picsum.photos/seed/pumpkin-ravioli/400/300",
-  "Spaghetti allo scoglio"          : "https://picsum.photos/seed/seafood-spaghetti/400/300",
-  "Bistecca alla fiorentina"        : "https://picsum.photos/seed/florentine-steak/400/300",
-  "Pollo al mattone"                : "https://picsum.photos/seed/roast-chicken/400/300",
-  "Branzino in crosta di sale"      : "https://picsum.photos/seed/sea-bass-salt-crust/400/300",
-  "Tiramisù della nonna"            : "https://picsum.photos/seed/tiramisu/400/300",
-  "Panna cotta al miele"            : "https://picsum.photos/seed/panna-cotta/400/300",
-  "Delizia al limone"               : "https://picsum.photos/seed/lemon-cake/400/300",
-  "Morellino di Scansano DOCG"      : "https://picsum.photos/seed/tuscan-wine/400/300",
-  "Prosecco Superiore"              : "https://picsum.photos/seed/prosecco/400/300",
-  "Aperol Spritz della casa"        : "https://picsum.photos/seed/aperol-spritz/400/300",
-  "Caffè mokaccino"                 : "https://picsum.photos/seed/macchiato/400/300",
+  "Burrata pugliese"                : BING("burrata tomato plate"),
+  "Carciofi alla giudia"            : BING("fried artichoke roman"),
+  "Bruschetta trio"                 : BING("bruschetta toast tomato"),
+  "Pici cacio e pepe"               : BING("cacio e pepe pasta"),
+  "Tagliatelle all'astice"          : BING("lobster pasta tagliatelle"),
+  "Tortelli di zucca"               : BING("pumpkin ravioli butter sage"),
+  "Spaghetti allo scoglio"          : BING("seafood spaghetti"),
+  "Bistecca alla fiorentina"        : BING("florentine steak t-bone"),
+  "Pollo al mattone"                : BING("roast chicken lemon herbs"),
+  "Branzino in crosta di sale"      : BING("sea bass salt crust baked"),
+  "Tiramisù della nonna"            : BING("tiramisu classic dessert"),
+  "Panna cotta al miele"            : BING("panna cotta honey dessert"),
+  "Delizia al limone"               : BING("lemon cake dessert amalfi"),
+  "Morellino di Scansano DOCG"      : BING("tuscan red wine glass"),
+  "Prosecco Superiore"              : BING("prosecco flute glass"),
+  "Aperol Spritz della casa"        : BING("aperol spritz orange glass"),
+  "Caffè mokaccino"                 : BING("macchiato espresso cup"),
 };
 
 // Degradado temático de respaldo si una imagen no carga (sin conexión).

@@ -1,24 +1,28 @@
-// Sakura · Omakase — imágenes de plato (fotos reales vía picsum.photos, seed estable por tipo de plato).
-// Verificadas: todas responden HTTP 200 con content-type image/jpeg. Para fotos propias del cliente,
-// sustituye la URL por la imagen correspondiente (misma clave = nombre exacto del plato en menu-data.js).
+// Sakura · Omakase — imágenes de plato.
+// Fuente: Bing Images thumbnails (tse.mm.bing.net) — devuelven una foto REAL relevante a la búsqueda,
+// recortada a 600x450 y cacheada por CDN (estable y sin API key). Cada query fue verificada: HTTP 200,
+// content-type image/jpeg y contenido coherente con el plato. Para fotos propias del cliente, sustituye
+// la URL por la imagen correspondiente (misma clave = nombre exacto del plato en menu-data.js).
+const BING = (q) => `https://tse.mm.bing.net/th?q=${encodeURIComponent(q)}&w=600&h=450&c=7&rs=1&p=0`;
+
 window.PHOTO_MAP = {
-  "Edamame con sal marina"          : "https://picsum.photos/seed/edamame/400/300",
-  "Chawanmushi"                     : "https://picsum.photos/seed/chawanmushi/400/300",
-  "Tako wasabi"                     : "https://picsum.photos/seed/octopus-sashimi/400/300",
-  "Omakase Nigiri (8 pzs)"          : "https://picsum.photos/seed/nigiri-sushi/400/300",
-  "Sashimi Premium (12 pzs)"        : "https://picsum.photos/seed/sashimi-platter/400/300",
-  "Hand roll de anguila"            : "https://picsum.photos/seed/unagi-sushi/400/300",
-  "Veggie maki (6 pzs)"             : "https://picsum.photos/seed/vegetable-maki-roll/400/300",
-  "Ramen Tonkotsu"                  : "https://picsum.photos/seed/tonkotsu-ramen/400/300",
-  "Wagyu teppanyaki A5"             : "https://picsum.photos/seed/wagyu-steak/400/300",
-  "Okonomiyaki de marisco"          : "https://picsum.photos/seed/okonomiyaki/400/300",
-  "Brochetas yakitori (4 u.)"       : "https://picsum.photos/seed/yakitori/400/300",
-  "Tiramisú de matcha"              : "https://picsum.photos/seed/matcha-tiramisu/400/300",
-  "Dango de temporada"              : "https://picsum.photos/seed/dango/400/300",
-  "Helado de sésamo negro"          : "https://picsum.photos/seed/black-sesame-ice-cream/400/300",
-  "Sake Junmai Ginjo (copa)"        : "https://picsum.photos/seed/sake-cup/400/300",
-  "Cerveza artesana yuzu"           : "https://picsum.photos/seed/craft-beer/400/300",
-  "Matcha latte (frío/caliente)"    : "https://picsum.photos/seed/matcha-latte/400/300",
+  "Edamame con sal marina"          : BING("edamame salt dish"),
+  "Chawanmushi"                     : BING("chawanmushi egg custard japanese"),
+  "Tako wasabi"                     : BING("tako wasabi octopus sashimi"),
+  "Omakase Nigiri (8 pzs)"          : BING("nigiri sushi platter chef"),
+  "Sashimi Premium (12 pzs)"        : BING("sashimi platter salmon tuna"),
+  "Hand roll de anguila"            : BING("unagi hand roll sushi"),
+  "Veggie maki (6 pzs)"             : BING("vegetable maki roll avocado"),
+  "Ramen Tonkotsu"                  : BING("tonkotsu ramen bowl egg chashu"),
+  "Wagyu teppanyaki A5"             : BING("wagyu steak teppanyaki"),
+  "Okonomiyaki de marisco"          : BING("okonomiyaki seafood pancake"),
+  "Brochetas yakitori (4 u.)"       : BING("yakitori chicken skewers grilled"),
+  "Tiramisú de matcha"              : BING("matcha tiramisu dessert"),
+  "Dango de temporada"              : BING("dango mitarashi skewers"),
+  "Helado de sésamo negro"          : BING("black sesame ice cream bowl"),
+  "Sake Junmai Ginjo (copa)"        : BING("sake cup tokkuri glass"),
+  "Cerveza artesana yuzu"           : BING("craft beer glass citrus garnish"),
+  "Matcha latte (frío/caliente)"    : BING("matcha latte glass iced"),
 };
 
 // Degradado temático de respaldo si una imagen no carga (sin conexión).
